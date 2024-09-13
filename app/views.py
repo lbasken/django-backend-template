@@ -3,7 +3,7 @@ from .serializers import AppSerializer
 from .models import App
 
 
-def list(request):
+def list_apps(request):
     query_set = App.objects.all()
     serializer = AppSerializer(query_set, many=True)
     return JsonResponse(serializer.data, safe=False)
