@@ -1,9 +1,9 @@
 from django.http import HttpResponse, JsonResponse
 from .serializers import AppSerializer
-from .models import App
+from .models import Item
 
 
-def list_apps(request):
-    query_set = App.objects.all()
+def get_all_items(request):
+    query_set = Item.objects.all()
     serializer = AppSerializer(query_set, many=True)
     return JsonResponse(serializer.data, safe=False)
